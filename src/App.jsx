@@ -4,7 +4,7 @@ import {Projects} from "./pages"
 
 function App() {
   return (
-    <main>
+    <main className="bg-slate-100">
       <Router>
         <NavBar />
         <Routes>
