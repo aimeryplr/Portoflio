@@ -9,7 +9,7 @@ function Link({name, route}) {
 
 function NavBar() {
   return (
-    <header className="flex relative justify-between items-center bg-cyan-400 h-20 px-28">
+    <header className="flex relative justify-between items-center bg-cyan-400 h-20 z-10 px-28">
         <img className="h-full absolute z-10 top-0 left-0" src={bubble}/>
         <NavLink to="/" className='z-20'>
            <img className='drop-shadow-xl h-14' src={mask}/>
