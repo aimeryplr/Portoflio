@@ -12,6 +12,8 @@
 body {
   font-family: "Work Sans", sans-serif;
   background-color: #e2e8f0;
+  max-width: 1920vw;
+  overflow-x: hidden;
 }
 
 body:has(.card[data-color="blue"]:hover) {
