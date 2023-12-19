@@ -23,7 +23,7 @@ function Projects() {
 
     return (
         <>
-        <section className="flex justify-center align-middle relative" style={{height: "88vh"}}>
+        <section className="flex justify-center align-middle relative" style={{height: "98vh"}}>
             <OceanRay ref={e => (rayRef.current[0] = e)} rotate={"17"} left={"7%"} scale={"Y(2.25)"} opacity={55}/>
             <OceanRay ref={e => (rayRef.current[1] = e)} rotate={"13"} left={"25%"} scale={"(2.25)"} opacity={75}/>
             <OceanRay ref={e => (rayRef.current[2] = e)} rotate={"8"} left={"37%"} scale={"Y(1.9)"} opacity={45}/>
