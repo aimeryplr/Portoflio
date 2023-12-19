@@ -6,7 +6,6 @@ const ProjectPreview = forwardRef((props, ref) => {
 
     let textRef = useRef()
     const onEnter = ({currentTarget}) => {
-        console.log(currentTarget)
         gsap.to(textRef.current, {opacity: 1, duration: 1, bottom: "4%", ease: "expo"})
         gsap.to(currentTarget, {scale: 1.05, ease: "slow", duration: 0.2, y: 20})
     }
