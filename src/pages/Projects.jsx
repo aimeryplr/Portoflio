@@ -8,11 +8,11 @@ import RobloxImg from "../assets/MartialWorld.png"
 import OceanRay from "../components/OceanRay"
 import PlaceHolder from "../assets/placeholder.png"
 import ImgAndText from "../components/ImgAndText.jsx";
-import TextAndImg from "../components/TextAndImg.jsx";
 
 
 function Projects() {
-    const MartialWorldText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo in ligula suscipit ullamcorper necsit amet nisi. Nullam sit amet tellus lorem. Fusce maximus nibh sit amet tellus elementum dictum."
+    const MartialWorldText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo in ligula suscipit ullamcorper necsit amet nisi."
+     + " Nullam sit amet tellus lorem. Fusce maximus nibh sit amet tellus elementum dictum."
 
     const testRef = useRef();
     const projectRef = useRef([]);
@@ -52,9 +52,9 @@ function Projects() {
                                 text="Elydia" bgColor="bg-cyan-400 cursor-pointer"/>
             </div>
         </section>
-        <ImgAndText text={MartialWorldText} setPos={setPosMartial} image={PlaceHolder} style="bg-cyan-400"/>
-        <TextAndImg text={MartialWorldText} setPos={setPosPygame} image={PlaceHolder} style="bg-[#2C3233]"/>
-        <ImgAndText text={MartialWorldText} setPos={setPosElydia} image={PlaceHolder} style="bg-cyan-400"/>
+        <ImgAndText name="Martial World" text={MartialWorldText} setPos={setPosMartial} image={PlaceHolder} style="bg-cyan-400"/>
+        <ImgAndText name="Planet Explorer" text={MartialWorldText} isImageLeft={true} setPos={setPosPygame} image={PlaceHolder} style="bg-[#2C3233]"/>
+        <ImgAndText name="Elydia" text={MartialWorldText} setPos={setPosElydia} image={PlaceHolder} style="bg-cyan-400"/>
         </>
     )
 }

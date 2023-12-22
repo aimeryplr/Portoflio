@@ -3,7 +3,7 @@ import bubble from '../assets/bubble.png'
 import mask from '../assets/mask.png'
 
 function Link({name, route}) {
-    let cssLink = 'text-lg font-semibold'
+    let cssLink = 'text-xl font-semibold'
     return <NavLink to={route} className={({isActive }) => isActive ? 'text-slate-50 ' + cssLink : cssLink + ' text-slate-200'}>{name}</NavLink>
 }
 
