@@ -4,7 +4,7 @@ import mask from '../assets/mask.png'
 
 function Link({name, route}) {
     let cssLink = 'text-lg font-semibold'
-    return <NavLink to={route} className={({isActive }) => isActive ? 'text-blue-700 ' + cssLink : cssLink + ' text-blue-500'}>{name}</NavLink>
+    return <NavLink to={route} className={({isActive }) => isActive ? 'text-slate-50 ' + cssLink : cssLink + ' text-slate-200'}>{name}</NavLink>
 }
 
 function NavBar() {

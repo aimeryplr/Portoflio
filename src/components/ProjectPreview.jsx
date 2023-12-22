@@ -5,6 +5,7 @@ import { useState, useEffect, useRef, forwardRef } from "react";
 const ProjectPreview = forwardRef((props, ref) => {
 
     let textRef = useRef()
+
     const onEnter = ({currentTarget}) => {
         gsap.to(textRef.current, {opacity: 1, duration: 1, bottom: "4%", ease: "expo"})
         gsap.to(currentTarget, {scale: 1.05, ease: "slow", duration: 0.2, y: 20})
@@ -16,7 +17,7 @@ const ProjectPreview = forwardRef((props, ref) => {
     }
 
     return (
-        <div ref={ref} onMouseEnter={onEnter} onMouseLeave={onLeave} className={"opacity-0 border-slate-50 w-full flex items-center justify-center border-2 rounded-xl aspect-square drop-shadow-md hover:border-cyan-500 " + props.bgColor}>
+        <div onClick={props.onClick} ref={ref} onMouseEnter={onEnter} onMouseLeave={onLeave} className={"opacity-0 border-slate-50 w-full flex items-center justify-center border-2 rounded-xl aspect-square drop-shadow-md hover:border-cyan-500 " + props.bgColor}>
             <figure className={
                 "flex flex-col justify-center items-center space-y-4 w-full"}>
                 <img src={props.image} className="w-3/4 rounded-lg" alt="souka"/>

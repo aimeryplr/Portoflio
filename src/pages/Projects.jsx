@@ -8,12 +8,23 @@ import RobloxImg from "../assets/MartialWorld.png"
 import OceanRay from "../components/OceanRay"
 import PlaceHolder from "../assets/placeholder.png"
 import ImgAndText from "../components/ImgAndText.jsx";
+import TextAndImg from "../components/TextAndImg.jsx";
 
 
 function Projects() {
+    const MartialWorldText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo in ligula suscipit ullamcorper necsit amet nisi. Nullam sit amet tellus lorem. Fusce maximus nibh sit amet tellus elementum dictum."
 
+    const testRef = useRef();
     const projectRef = useRef([]);
     const rayRef = useRef([]);
+
+    const [posMartial, setPosMartial] = useState(0)
+    const [posPygame, setPosPygame] = useState(0)
+    const [posElydia, setPosElydia] = useState(0)
+
+    function scrollToPos(pos) {
+        scrollTo({top: pos, left: 0, behavior: "smooth"})
+    }
 
     useLayoutEffect(() => {
         let tl = gsap.timeline()
@@ -33,16 +44,17 @@ function Projects() {
             <OceanRay ref={e => (rayRef.current[6] = e)} rotate={"330"} left={"95%"} scale={"(2)"} opacity={75}/>
             {/*3 Projects*/}
             <div className="flex justify-between items-center space-x-10 mx-[10%] w-full">
-                <ProjectPreview ref={e => (projectRef.current[1] = e)} image={RobloxImg}
+                <ProjectPreview ref={e => (projectRef.current[1] = e)} onClick={() => scrollToPos(posMartial)} image={RobloxImg}
                                 text="Martial World" bgColor="bg-cyan-400 cursor-pointer"/>
-                <ProjectPreview ref={e => (projectRef.current[0] = e)} image={PygameImg}
-                                text="Planet Explorer" bgColor="bg-slate-400 cursor-pointer"/>
-                <ProjectPreview ref={e => (projectRef.current[2] = e)} image={MinecraftServer}
+                <ProjectPreview ref={e => (projectRef.current[0] = e)} onClick={() => scrollToPos(posPygame)} image={PygameImg}
+                                text="Planet Explorer" bgColor="bg-[#2C3233] cursor-pointer"/>
+                <ProjectPreview ref={e => (projectRef.current[2] = e)} onClick={() => scrollToPos(posElydia)} image={MinecraftServer}
                                 text="Elydia" bgColor="bg-cyan-400 cursor-pointer"/>
             </div>
         </section>
-        <ImgAndText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo in ligula suscipit ullamcorper necsit amet nisi.
-                Nullam sit amet tellus lorem. Fusce maximus nibh sit amet tellus elementum dictum." image={PlaceHolder} style="bg-cyan-400"/>
+        <ImgAndText text={MartialWorldText} setPos={setPosMartial} image={PlaceHolder} style="bg-cyan-400"/>
+        <TextAndImg text={MartialWorldText} setPos={setPosPygame} image={PlaceHolder} style="bg-[#2C3233]"/>
+        <ImgAndText text={MartialWorldText} setPos={setPosElydia} image={PlaceHolder} style="bg-cyan-400"/>
         </>
     )
 }
