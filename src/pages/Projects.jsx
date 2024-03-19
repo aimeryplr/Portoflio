@@ -3,11 +3,12 @@ import { gsap } from "gsap";
 import { useLayoutEffect } from "react";
 import { useState, useEffect, useRef, forwardRef } from "react";
 import ProjectPreview from "../components/ProjectPreview";
-import PygameImg from "../assets/jeu-explore-python.png"
-import RobloxImg from "../assets/MartialWorld.png"
-import OceanRay from "../components/OceanRay"
-import PlaceHolder from "../assets/placeholder.png"
+import PygameImg from "../assets/jeu-explore-python.png";
+import RobloxImg from "../assets/MartialWorld.png";
+import OceanRay from "../components/OceanRay";
+import PlaceHolder from "../assets/placeholder.png";
 import ImgAndText from "../components/ImgAndText.jsx";
+import HorizontalBar from "../components/HorizontalBar.jsx";
 
 
 function Projects() {
@@ -52,9 +53,12 @@ function Projects() {
                                 text="Elydia" bgColor="bg-cyan-400 cursor-pointer"/>
             </div>
         </section>
-        <ImgAndText name="Martial World" text={MartialWorldText} setPos={setPosMartial} image={PlaceHolder} style="bg-cyan-400"/>
-        <ImgAndText name="Planet Explorer" text={MartialWorldText} isImageLeft={true} setPos={setPosPygame} image={PlaceHolder} style="bg-[#2C3233]"/>
-        <ImgAndText name="Elydia" text={MartialWorldText} setPos={setPosElydia} image={PlaceHolder} style="bg-cyan-400"/>
+        <HorizontalBar color="bg-cyan-400"/>
+        <ImgAndText name="Martial World" text={MartialWorldText} setPos={setPosMartial} image={PlaceHolder} style="bg-slate-100 border-x-1"/>
+        <HorizontalBar color="bg-sky-400"/>
+        <ImgAndText name="Planet Explorer" text={MartialWorldText} isImageLeft={true} setPos={setPosPygame} image={PlaceHolder} style="bg-slate-100"/>
+        <HorizontalBar color="bg-blue-400"/>
+        <ImgAndText name="Elydia" text={MartialWorldText} setPos={setPosElydia} image={PlaceHolder} style="bg-slate-100 border-x-1"/>
         </>
     )
 }
