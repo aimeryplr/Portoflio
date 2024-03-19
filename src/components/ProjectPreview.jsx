@@ -17,7 +17,7 @@ const ProjectPreview = forwardRef((props, ref) => {
     }
 
     return (
-        <div onClick={props.onClick} ref={ref} onMouseEnter={onEnter} onMouseLeave={onLeave} className={"opacity-0 border-slate-50 w-full flex items-center justify-center border-2 rounded-xl aspect-square drop-shadow-md hover:border-cyan-500 " + props.bgColor}>
+        <div onClick={props.onClick} ref={ref} onMouseEnter={onEnter} onMouseLeave={onLeave} className={"opacity-0 border-slate-50 w-full flex items-center justify-center border-0 rounded-xl aspect-square drop-shadow-md hover:border-cyan-500 " + props.bgColor}>
             <figure className={
                 "flex flex-col justify-center items-center space-y-4 w-full"}>
                 <img src={props.image} className="w-3/4 rounded-lg" alt="souka"/>
