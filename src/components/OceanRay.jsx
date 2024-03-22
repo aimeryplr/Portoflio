@@ -1,4 +1,4 @@
-import RayImg from "../assets/OceanRay.png"
+import RayImg from "../assets/projects/OceanRay.png"
 import {forwardRef} from "react";
 
 const OceanRay = forwardRef((props, ref) => {

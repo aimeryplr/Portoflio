@@ -1,0 +1,25 @@
+{
+    "projects" : {
+        "elydia": {
+            "name": "Elydia",
+            "desc": "Serveur Minecraft multijoueur innovant. Gestion de serveur Linux. Création d'une base de données pour les joueurs. Système de progression. Optimisation. Développement de plugins. Gestion de communauté.",
+            "icon": "IconElydia.png",
+            "image": "ImageElydia.jpg",
+            "competences" : ["Java", "Spigot", "SQL", "Server Management", "Leadership", "Creativité"]
+        },
+        "martialWorld": {
+            "name": "Martial World",
+            "desc": "Gérer une équipe. Mettre en place des idées de manière organisée. Concevoir un monde et une interface graphique sous le moteur de jeu Roblox. Gestion de communauté et d'événements.",
+            "icon": "IconMartialWorld.png",
+            "image": "ImageMartialWorld.png",
+            "competences" : ["Lua", "Roblox", "Leadership", "Communication", "Design", "Creativité"]
+        },
+        "planetExplorer": {
+            "name": "Planet Explorer",
+            "desc": "Création d'un jeu vidéo 2D. Utilisation de la bibliothèque Pygame. Gérer une équipe de 3 personnes et élaborer un plan du code à l'avance. Imaginer des mécaniques de jeu et les réaliser en équipe.",
+            "icon": "IconPlanetExplorer.png",
+            "image": "ImagePlanetExplorer.png",
+            "competences" : ["Python", "Pygame", "Leadership", "Creativité"]
+        }
+    }
+}

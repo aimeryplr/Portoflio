@@ -1,30 +1,25 @@
-import MinecraftServer from "../assets/minecraft-icon.png"
+import React, { lazy } from "react";
 import { gsap } from "gsap";
 import { useLayoutEffect } from "react";
 import { useState, useEffect, useRef, forwardRef } from "react";
 import ProjectPreview from "../components/ProjectPreview";
-import PygameImg from "../assets/jeu-explore-python.png";
-import RobloxImg from "../assets/MartialWorld.png";
 import OceanRay from "../components/OceanRay";
-import PlaceHolder from "../assets/placeholder.png";
 import ImgAndText from "../components/ImgAndText.jsx";
 import HorizontalBar from "../components/HorizontalBar.jsx";
-import textrelou from "../assets/textrelou.json";
+import textrelou from "../assets/projects/textrelou.json";
+import Dot from "../components/Dot.jsx";
+import Title from "../components/Title.jsx";
 
 
 function Projects() {
-    const MartialWorldText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo in ligula suscipit ullamcorper necsit amet nisi."
-     + " Nullam sit amet tellus lorem. Fusce maximus nibh sit amet tellus elementum dictum.";
-
-    const testRef = useRef();
     const projectRef = useRef([]);
     const rayRef = useRef([]);
 
-    const [posMartial, setPosMartial] = useState(0)
-    const [posPygame, setPosPygame] = useState(0)
-    const [posElydia, setPosElydia] = useState(0)
+    const martialWorldText = "Martial World is a Roblox game that I have been developing for the past 2 years. It is a game where you can train your character to become stronger and fight other players. The game is still in development and I am planning to release it soon."
 
-    function scrollToPos(pos) {
+    function scrollToPos(name) {
+        console.log(name)
+        var pos = document.getElementById(name).getBoundingClientRect().top - (window.innerHeight - document.getElementById(name).getBoundingClientRect().height + 80) / 2;
         scrollTo({top: pos, left: 0, behavior: "smooth"})
     }
 
@@ -36,6 +31,7 @@ function Projects() {
 
     return (
         <>
+        <Title title="Mes Projets" />
         <section className="flex justify-center align-middle absolute w-full" style={{height: "98vh"}}>
             <OceanRay ref={e => (rayRef.current[0] = e)} rotate={"17"} left={"7%"} scale={"Y(2.25)"} opacity={55}/>
             <OceanRay ref={e => (rayRef.current[1] = e)} rotate={"13"} left={"25%"} scale={"(2.25)"} opacity={75}/>
@@ -46,23 +42,47 @@ function Projects() {
             <OceanRay ref={e => (rayRef.current[6] = e)} rotate={"330"} left={"95%"} scale={"(2)"} opacity={75}/>
         </section>
         <div className="flex flex-wrap min-h-[88vh] gap-6 justify-start items-center mx-[8%] my-6">
-                <ProjectPreview ref={e => (projectRef.current[1] = e)} onClick={() => scrollToPos(posMartial)} image={RobloxImg}
-                                text="Martial World" bgColor="bg-blue-400 cursor-pointer"/>
-                <ProjectPreview ref={e => (projectRef.current[0] = e)} onClick={() => scrollToPos(posPygame)} image={PygameImg}
-                                text="Planet Explorer" bgColor="bg-blue-400 cursor-pointer"/>
-                <ProjectPreview ref={e => (projectRef.current[2] = e)} onClick={() => scrollToPos(posElydia)} image={MinecraftServer}
-                                text="Elydia" bgColor="bg-blue-400 cursor-pointer"/>
-                <ProjectPreview ref={e => (projectRef.current[3] = e)} onClick={() => scrollToPos(posElydia)} image={MinecraftServer}
-                                text="Elydia" bgColor="bg-blue-400 cursor-pointer"/>
-                <ProjectPreview ref={e => (projectRef.current[4] = e)} onClick={() => scrollToPos(posElydia)} image={MinecraftServer}
-                                text="Elydia" bgColor="bg-blue-400 cursor-pointer"/>
+            {Object.keys(textrelou.projects).map((key, index) => {
+                let project = textrelou.projects[key];
+                const img = 'src/assets/projects/' + project.icon
+                return (
+                    <ProjectPreview
+                        key={index}
+                        ref={e => (projectRef.current[index] = e)}
+                        onClick={() => scrollToPos(project.name)}
+                        image={img}
+                        text={project.name}
+                        bgColor="bg-cyan-400 cursor-pointer"
+                    />
+                );
+            })};
         </div>
-        <HorizontalBar color="bg-cyan-400"/>
-        <ImgAndText name="Martial World" text={MartialWorldText} setPos={setPosMartial} image={PlaceHolder} style="bg-slate-100"/>
-        <HorizontalBar color="bg-sky-400"/>
-        <ImgAndText name="Planet Explorer" text={textrelou.projects.martialWorld.desc} isImageLeft={true} setPos={setPosPygame} image={PlaceHolder} style="bg-slate-100"/>
-        <HorizontalBar color="bg-blue-400"/>
-        <ImgAndText name="Elydia" text={MartialWorldText} setPos={setPosElydia} image={PlaceHolder} style="bg-slate-100"/>
+        {Object.keys(textrelou.projects).map((key, index) => {
+            let project = textrelou.projects[key];
+            return (
+                <section id={project.name} className={"relative justify-between flex flex-col py-10 h-[60vh] bg-slate-100"}>
+                    <HorizontalBar color="bg-cyan-400"/>
+                    <h1 className="text-center text-slate-[#2C3233] font-bold text-5xl">{project.name}</h1>
+                    <ImgAndText
+                        key={index}
+                        image={'src/assets/projects/' + project.image}
+                        text={project.desc}
+                        isImageLeft={index % 2 === 0}
+                    />
+                    <div className="flex flex-wrap gap-3 items-center justify-center">
+                        {textrelou.projects[key].competences.map((competence, index) => {
+                            return (
+                                <>
+                                    <p className="text-[#2C3233] font-medium text-2xl">{competence}</p>
+                                    {index < textrelou.projects[key].competences.length - 1 &&
+                                        <Dot color="bg-cyan-400"/>}
+                                </>
+                            );
+                        })}
+                    </div>
+                </section>
+            );
+        })};
         </>
     )
 }
