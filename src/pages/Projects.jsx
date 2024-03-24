@@ -44,25 +44,24 @@ function Projects() {
         <div className="flex flex-wrap min-h-[88vh] gap-6 justify-start items-center mx-[8%] my-6">
             {Object.keys(textrelou.projects).map((key, index) => {
                 let project = textrelou.projects[key];
-                const img = 'src/assets/projects/' + project.icon
                 return (
                     <ProjectPreview
                         key={index}
                         ref={e => (projectRef.current[index] = e)}
                         onClick={() => scrollToPos(project.name)}
-                        image={img}
-                        text={project.name}
+                        icon={"src/assets/projects/" + project.icon}
+                        name={project.name}
                         bgColor="bg-cyan-400 cursor-pointer"
                     />
                 );
-            })};
+            })}
         </div>
         {Object.keys(textrelou.projects).map((key, index) => {
             let project = textrelou.projects[key];
             return (
                 <section id={project.name} className={"relative justify-between flex flex-col py-10 h-[60vh] bg-slate-100"}>
                     <HorizontalBar color="bg-cyan-400"/>
-                    <h1 className="text-center text-slate-[#2C3233] font-bold text-5xl">{project.name}</h1>
+                    <h1 className="text-center text-[#2C3233] font-bold text-5xl">{project.name}</h1>
                     <ImgAndText
                         key={index}
                         image={'src/assets/projects/' + project.image}
