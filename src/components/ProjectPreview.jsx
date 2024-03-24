@@ -15,16 +15,23 @@ const ProjectPreview = forwardRef((props, ref) => {
         gsap.to(textRef.current, {opacity: 1, duration: 0.5, bottom: "4%", ease: "expo"})
         gsap.to(currentTarget, {scale: 1.05, ease: "slow", duration: 0.2, y: 20})
         gsap.to(wave.current, {duration: 1, ease: "circ", y: "40%"})
-        gsap.to(wave1_1.current, {duration: 10, ease: "none", x: "100%"})
+        gsap.to(wave1_1.current, {duration: 10, ease: "none", x: "100%", repeat: -1})
         gsap.to(wave1_2.current, {duration: 5, ease: "none", x: "100%"})
-        gsap.to(wave2_1.current, {duration: 16, ease: "none", x: "100%"})
+        gsap.to(wave2_1.current, {duration: 16, ease: "none", x: "100%", repeat: -1})
         gsap.to(wave2_2.current, {duration: 8, ease: "none", x: "100%"})
+
+        gsap.to(wave1_2.current, {duration: 0, ease: "none", x: "-100%", delay: 5})
+        gsap.to(wave2_2.current, {duration: 0, ease: "none", x: "-100%", delay: 8})
+        gsap.to(wave1_2.current, {duration: 10, ease: "none", x: "100%", delay: 5, repeat: -1})
+        gsap.to(wave2_2.current, {duration: 16, ease: "none", x: "100%", delay: 8, repeat: -1})
     }
 
     const onLeave = ({currentTarget}) => {
         gsap.to(textRef.current, {opacity: 0, duration: 0.5, bottom: "-4%", ease: "expo"})
         gsap.to(currentTarget, {scale: 1, ease: "circ", duration: 0.2, y: 0})
         gsap.to(wave.current, {duration: 1, ease: "expo", y: "100%"})
+
+        
     }
 
     return (
