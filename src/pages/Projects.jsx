@@ -18,9 +18,8 @@ function Projects() {
     const martialWorldText = "Martial World is a Roblox game that I have been developing for the past 2 years. It is a game where you can train your character to become stronger and fight other players. The game is still in development and I am planning to release it soon."
 
     function scrollToPos(name) {
-        console.log(name)
-        var pos = document.getElementById(name).getBoundingClientRect().top - (window.innerHeight - document.getElementById(name).getBoundingClientRect().height + 80) / 2;
-        scrollTo({top: pos, left: 0, behavior: "smooth"})
+        var pos = document.getElementById(name).offsetTop - (window.innerHeight - document.getElementById(name).getBoundingClientRect().height + 80) / 2;
+        window.scroll({top: pos, left: 0, behavior: "smooth"})
     }
 
     useLayoutEffect(() => {
@@ -41,7 +40,7 @@ function Projects() {
             <OceanRay ref={e => (rayRef.current[5] = e)} rotate={"350"} left={"73%"} scale={"Y(2)"} opacity={45}/>
             <OceanRay ref={e => (rayRef.current[6] = e)} rotate={"330"} left={"95%"} scale={"(2)"} opacity={75}/>
         </section>
-        <div className="flex flex-wrap min-h-[88vh] gap-6 justify-start items-center mx-[8%] my-6">
+        <div className="flex flex-wrap min-h-[88vh] gap-6 justify-start items-center mx-[8%] mb-6">
             {Object.keys(textrelou.projects).map((key, index) => {
                 let project = textrelou.projects[key];
                 return (
@@ -51,7 +50,7 @@ function Projects() {
                         onClick={() => scrollToPos(project.name)}
                         icon={"src/assets/projects/" + project.icon}
                         name={project.name}
-                        bgColor="bg-cyan-400 cursor-pointer"
+                        competences={project.competences}
                     />
                 );
             })}
