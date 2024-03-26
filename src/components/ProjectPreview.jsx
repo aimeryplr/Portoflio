@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import React, { useLayoutEffect } from "react";
 import { useState, useEffect, useRef, forwardRef } from "react";
-import downArrow from "/src/assets/projects/down-arrow-g.png";
 import textrelou from "../assets/projects/textrelou.json";
 import Dot from "./Dot.jsx";
 
