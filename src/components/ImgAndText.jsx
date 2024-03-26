@@ -16,9 +16,9 @@ function ImgAndText(props) {
     useLayoutEffect(() => {
         gsap.from(imgRef.current, {
             scrollTrigger: {
-            trigger: textRef.current, 
+            trigger: imgRef.current,
             start: "center bottom",
-            markers: false,
+            markers: true,
             end: "top top",
             toggleActions: "play reverse restart reverse"
         },

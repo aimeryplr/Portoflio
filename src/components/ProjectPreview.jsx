@@ -1,8 +1,6 @@
 import { gsap } from "gsap";
 import React, { useLayoutEffect } from "react";
 import { useState, useEffect, useRef, forwardRef } from "react";
-import downArrow from "/src/assets/projects/down-arrow-g.png";
-import textrelou from "../assets/projects/textrelou.json";
 import Dot from "./Dot.jsx";
 
 const ProjectPreview = forwardRef((props, ref) => {
@@ -11,37 +9,33 @@ const ProjectPreview = forwardRef((props, ref) => {
     let imageRef = useRef();
 
     let wave = useRef()
-    let wave1_1 = useRef()
-    let wave1_2 = useRef()
-    let wave2_1 = useRef()
-    let wave2_2 = useRef()
+    let wave1 = useRef()
+    let wave2 = useRef()
 
     let waveTimeLine1 = gsap.timeline({repeat: -1, paused: true})
     let waveTimeLine2 = gsap.timeline({repeat: -1, paused: true})
 
     useLayoutEffect(() => {
-        waveTimeLine1.to(wave1_1.current, {duration: 5, ease: "none", x: "0%"})
-        waveTimeLine1.to(wave1_2.current, {duration: 5, ease: "none", x: "100%"}, "<")
-
-        waveTimeLine2.to(wave2_1.current, {duration: 8, ease: "none", x: "0%"})
-        waveTimeLine2.to(wave2_2.current, {duration: 8, ease: "none", x: "100%"}, "<")
+        waveTimeLine1.to(wave1.current, {duration: 5, ease: "none", x: "50%"})
+        waveTimeLine2.to(wave2.current, {duration: 8, ease: "none", x: "50%"})
     }, [])
 
     const onEnter = ({currentTarget}) => {
         gsap.to(textRef.current, {opacity: 1, duration: 0.5, bottom: "4%", ease: "expo"})
         gsap.to(currentTarget, {scale: 1.05, ease: "slow", duration: 0.2, y: 20})
-        gsap.to(wave.current, {duration: 0.5, ease: "circ", y: "55%"})
+        gsap.to(wave.current, {duration: 0.5, ease: "circ.out", y: "30%"})
 
         waveTimeLine1.play()
         waveTimeLine2.play()
 
         imageRef.current.style.filter = "brightness(0.5)"
+        console.log("enter")
     }
 
     const onLeave = ({currentTarget}) => {
         gsap.to(textRef.current, {opacity: 0, duration: 0.5, bottom: "-4%", ease: "expo"})
         gsap.to(currentTarget, {scale: 1, ease: "circ", duration: 0.2, y: 0})
-        gsap.to(wave.current, {duration: 1, ease: "expo", y: "100%"})
+        gsap.to(wave.current, {duration: 0.5, ease: "circ.out", y: "60%"})
 
         waveTimeLine1.paused(true)
         waveTimeLine2.paused(true)
@@ -59,34 +53,38 @@ const ProjectPreview = forwardRef((props, ref) => {
                             className="absolute opacity-0 -bottom-10 text-slate-50 font-bold text-2xl">{props.text}</figcaption>
             </figure>
             <div className="bottom-0 h-fit w-full absolute translate-y-full" ref={wave}>
-                <svg viewBox="0 0 120 100" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <g id="wave">
-                        <path id="wave2" fill="#22d3ee" opacity="0.7" ref={wave1_2}
-                              d="M16 1.55193C9.5 -1.51035 4 0.875222 0 1.04189V100.552H120V0.989652C120 0.989652 116 1.05193 114 1.48965C112 1.92737 109.7 2.65194 108.5 3.05194C107 3.55194 99 6.05194 92 3.05194C85 0.0519383 78.5 0.0519243 75 1.55193C71.5 3.05194 68 4.55195 62.5 3.05194C57 1.55193 53 4.05194 52 4.48965C51 4.92737 48.3333 4.65632 46 3.98965C44.1946 3.47382 38.5 0.614211 35.5 1.55193C32.5 2.48965 22.5 4.61421 16 1.55193Z"
-                        />
-                        <path id="wave2" className="-translate-x-full" fill="#22d3ee" opacity="0.7" ref={wave1_1}
-                              d="M16 1.55193C9.5 -1.51035 4 0.875222 0 1.04189V100.552H120V0.989652C120 0.989652 116 1.05193 114 1.48965C112 1.92737 109.7 2.65194 108.5 3.05194C107 3.55194 99 6.05194 92 3.05194C85 0.0519383 78.5 0.0519243 75 1.55193C71.5 3.05194 68 4.55195 62.5 3.05194C57 1.55193 53 4.05194 52 4.48965C51 4.92737 48.3333 4.65632 46 3.98965C44.1946 3.47382 38.5 0.614211 35.5 1.55193C32.5 2.48965 22.5 4.61421 16 1.55193Z"
-                        />
-                        <path id="wave1" fill="#38bdf8" ref={wave2_2} opacity="0.85"
-                              d="M112 3.52348C113.2 3.11722 117.5 2 120 2V100H0V2C0 2 3.5 1.99743 8.5 2.50526C13.5 3.0131 17.5 4.01591 22.5 5.03157C27.5 6.04722 34 3.52348 36.5 3.01565C39 2.50783 43 4.53913 50.5 5.04695C58 5.55478 66 2 68 2C70 2 73.5 2 74.5 3.01565C75.3 3.82817 79.5 4.36985 81.5 4.53913C88.5 4.53913 88.5 2.50783 93.5 2.50783C98.5 2.50783 100 3.52348 103 4.0313C106 4.53913 110.5 4.0313 112 3.52348Z"
-                        />
-                        <path id="wave1" className="-translate-x-full" fill="#38bdf8" ref={wave2_1} opacity="0.85"
-                              d="M112 3.52348C113.2 3.11722 117.5 2 120 2V100H0V2C0 2 3.5 1.99743 8.5 2.50526C13.5 3.0131 17.5 4.01591 22.5 5.03157C27.5 6.04722 34 3.52348 36.5 3.01565C39 2.50783 43 4.53913 50.5 5.04695C58 5.55478 66 2 68 2C70 2 73.5 2 74.5 3.01565C75.3 3.82817 79.5 4.36985 81.5 4.53913C88.5 4.53913 88.5 2.50783 93.5 2.50783C98.5 2.50783 100 3.52348 103 4.0313C106 4.53913 110.5 4.0313 112 3.52348Z"
-                        />
+                <svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <g>
+                        <g ref={wave1}>
+                            <path
+                                d="M16 79.5519C9.5 76.4897 4 78.8752 0 79.0419V178.552H120V78.9897C120 78.9897 116 79.0519 114 79.4897C112 79.9274 109.7 80.6519 108.5 81.0519C107 81.5519 99 84.0519 92 81.0519C85 78.0519 78.5 78.0519 75 79.5519C71.5 81.0519 68 82.5519 62.5 81.0519C57 79.5519 53 82.0519 52 82.4897C51 82.9274 48.3333 82.6563 46 81.9897C44.1946 81.4738 38.5 78.6142 35.5 79.5519C32.5 80.4897 22.5 82.6142 16 79.5519Z"
+                                fill="#22d3ee" opacity="0.72"/>
+                            <path
+                                d="M-104 79.5519C-110.5 76.4897 -116 78.8752 -120 79.0419V178.552H0V78.9897C0 78.9897 -4 79.0519 -6 79.4897C-8 79.9274 -10.3 80.6519 -11.5 81.0519C-13 81.5519 -21 84.0519 -28 81.0519C-35 78.0519 -41.5 78.0519 -45 79.5519C-48.5 81.0519 -52 82.5519 -57.5 81.0519C-63 79.5519 -67 82.0519 -68 82.4897C-69 82.9274 -71.6667 82.6563 -74 81.9897C-75.8054 81.4738 -81.5 78.6142 -84.5 79.5519C-87.5 80.4897 -97.5 82.6142 -104 79.5519Z"
+                                fill="#22d3ee" opacity="0.72"/>
+                        </g>
+                        <g ref={wave2}>
+                            <path
+                                d="M112 83.5235C113.2 83.1172 117.5 82 120 82V180H0V82C0 82 3.5 81.9974 8.5 82.5053C13.5 83.0131 17.5 84.0159 22.5 85.0316C27.5 86.0472 34 83.5235 36.5 83.0157C39 82.5078 43 84.5391 50.5 85.047C58 85.5548 66 82 68 82C70 82 73.5 82 74.5 83.0157C75.3 83.8282 79.5 84.3699 81.5 84.5391C88.5 84.5391 88.5 82.5078 93.5 82.5078C98.5 82.5078 100 83.5235 103 84.0313C106 84.5391 110.5 84.0313 112 83.5235Z"
+                                fill="#38bdf8" opacity="0.85"/>
+                            <path
+                                d="M-8 83.5235C-6.8 83.1172 -2.5 82 0 82V180H-120V82C-120 82 -116.5 81.9974 -111.5 82.5053C-106.5 83.0131 -102.5 84.0159 -97.5 85.0316C-92.5 86.0472 -86 83.5235 -83.5 83.0157C-81 82.5078 -77 84.5391 -69.5 85.047C-62 85.5548 -54 82 -52 82C-50 82 -46.5 82 -45.5 83.0157C-44.7 83.8282 -40.5 84.3699 -38.5 84.5391C-31.5 84.5391 -31.5 82.5078 -26.5 82.5078C-21.5 82.5078 -20 83.5235 -17 84.0313C-14 84.5391 -9.5 84.0313 -8 83.5235Z"
+                                fill="#38bdf8" opacity="0.85"/>
+                        </g>
                     </g>
                 </svg>
-                <p className="absolute z-10 text-center w-full top-[10%] text-slate-100 font-bold text-3xl">{props.name}</p>
+                <p className="absolute z-10 text-center w-full top-[50%] text-slate-100 font-bold text-3xl">{props.name}</p>
                 {/*<img className="absolute z-10 w-20 top-1/4 right-1/2 translate-x-1/2" src={downArrow}/>*/}
-                <div className="absolute z-10 top-[25%] flex justify-center items-center right-1/2 translate-x-1/2 gap-1">
+                <div
+                    className="absolute z-10 top-[60%] flex justify-center items-center right-1/2 translate-x-1/2 gap-1">
                     {props.competences.slice(0, Math.min(3, props.competences.length)).map((competence, index) => {
-                    return (
-                        <>
-                            <p className="text-slate-100 font-medium text-xl">{competence}</p>
-                            {index < Math.min(2, props.competences.length - 1) &&
-                                <Dot color="bg-[#2C3233]"/>}
-                        </>
-                    );
+                        return (
+                            <>
+                                <p className="text-slate-100 font-medium text-xl">{competence}</p>
+                                {index < Math.min(2, props.competences.length - 1) &&
+                                    <Dot color="bg-[#2C3233]"/>}
+                            </>
+                        );
                     })}
                 </div>
             </div>
