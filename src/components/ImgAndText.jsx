@@ -18,7 +18,7 @@ function ImgAndText(props) {
             scrollTrigger: {
             trigger: imgRef.current,
             start: "center bottom",
-            markers: true,
+            markers: false,
             end: "top top",
             toggleActions: "play reverse restart reverse"
         },
