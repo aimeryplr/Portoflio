@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: 'oceanFont';
+  src: url("/src/assets/SuperOcean.ttf");
+}
+@font-face {
+  font-family: 'devFont';
+  src: url("/src/assets/BebasNeue-Regular.ttf");
+}
+
 
 @tailwind base;
 @tailwind components;
@@ -7,6 +16,7 @@
 :root {
   --blue-rgb: 237 245 255;
   --green-rgb: 125 161 35;
+  background-color: rgb(241 245 249);
 }
 
 body {

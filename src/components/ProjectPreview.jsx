@@ -73,7 +73,7 @@ const ProjectPreview = forwardRef((props, ref) => {
                         </g>
                     </g>
                 </svg>
-                <p className="absolute z-10 text-center w-full top-[50%] text-slate-100 font-bold text-3xl">{props.name}</p>
+                <p className="absolute z-10 text-center w-full top-[50%] text-slate-100 text-3xl font-ocean">{props.name}</p>
                 {/*<img className="absolute z-10 w-20 top-1/4 right-1/2 translate-x-1/2" src={downArrow}/>*/}
                 <div
                     className="absolute z-10 top-[60%] flex justify-center items-center right-1/2 translate-x-1/2 gap-1">

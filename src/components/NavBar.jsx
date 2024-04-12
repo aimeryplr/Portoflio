@@ -15,9 +15,8 @@ function NavBar() {
             <img className='drop-shadow-xl h-14' src={mask}/>
           </NavLink>
           <div className='flex space-x-12 items-center'>
-              <Link name="Projects" route="/Projects"/>
-              <Link name="About" route="/About"/>
-              <Link name="Contact" route="/Contacts"/>
+              <Link name="Projets" route="/Projects"/>
+              <Link name="À propos" route="/"/>
           </div>
       </header>
       <div className='relative h-20 bg-transparent'></div>

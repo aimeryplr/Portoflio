@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         gray: {
+          DEFAULT: "#2C3233",
           200: "#D5DAE1"
         },
         black: {
@@ -20,7 +21,9 @@ export default {
       },
       fontFamily: {
         worksans: ["Work Sans", "sans-serif"],
-        poppins: ['Poppins', "sans-serif"]
+        poppins: ['Poppins', "sans-serif"],
+        ocean: ['oceanFont', "sans-serif"],
+        dev: ['devFont', "sans-serif"]
       },
       boxShadow: {
         card: '0px 1px 2px 0px rgba(0, 0, 0, 0.05)'

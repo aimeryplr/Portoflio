@@ -64,7 +64,7 @@ function Projects() {
                 return (
                     <section id={project.name} className={"relative justify-between flex flex-col py-10 h-[60vh] bg-slate-100"}>
                     <HorizontalBar color="bg-cyan-400"/>
-                    <h1 className="text-center text-[#2C3233] font-bold text-5xl">{project.name}</h1>
+                    <h1 className="text-center text-gray font-bold text-5xl">{project.name}</h1>
                     <ImgAndText
                         key={index}
                         image={'src/assets/projects/' + project.image}
@@ -75,7 +75,7 @@ function Projects() {
                         {textrelou.projects[key].competences.map((competence, index) => {
                             return (
                                 <>
-                                    <p className="text-[#2C3233] font-medium text-2xl">{competence}</p>
+                                    <p className="text-gray font-medium text-2xl">{competence}</p>
                                     {index < textrelou.projects[key].competences.length - 1 &&
                                         <Dot color="bg-cyan-400"/>}
                                 </>
