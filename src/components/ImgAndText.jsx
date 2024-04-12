@@ -6,10 +6,10 @@ function ImgAndText(props) {
     let imgRef = useRef()
     let textRef = useRef()
 
-    let imgDiv = <div ref={imgRef} className="flex items-center rounded-lg border-4 border-slate-50 drop-shadow-xl h-[60%] w-[30em] overflow-clip">
+    let imgDiv = <div ref={imgRef} className="flex items-center rounded-lg border-4 border-slate-50 drop-shadow-[0_0_25px_rgba(6,182,212,0.3)] h-[60%] w-[30em] overflow-clip">
         <img src={props.image} className="h-full w-full object-cover"/>
     </div>
-    let text = <h2 ref={textRef} className={"text-[#2C3233] text-4xl text-justify w-[60%] "}>{props.text}</h2>
+    let text = <h2 ref={textRef} className={"text-gray text-4xl text-justify w-[60%] "}>{props.text}</h2>
 
     gsap.registerPlugin(ScrollTrigger)
 

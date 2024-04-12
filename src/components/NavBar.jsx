@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-import bubble from '../assets/bubble.png'
 import mask from '../assets/mask.png'
 
 function Link({name, route}) {
@@ -10,7 +9,7 @@ function Link({name, route}) {
 function NavBar() {
   return (
     <>
-      <header className="flex fixed justify-between w-screen items-center bg-cyan-400 h-20 z-50 px-28">
+      <header className="flex fixed justify-between w-screen items-center bg-cyan-400 h-[9vh] z-50 px-28">
           <NavLink to="/" className='z-20'>
             <img className='drop-shadow-xl h-14' src={mask}/>
           </NavLink>
@@ -19,7 +18,7 @@ function NavBar() {
               <Link name="À propos" route="/"/>
           </div>
       </header>
-      <div className='relative h-20 bg-transparent'></div>
+      <div className='relative h-[9vh] bg-transparent'></div>
     </>
   )
 }
