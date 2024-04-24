@@ -3,7 +3,8 @@ import mask from '../assets/mask.png'
 
 function Link({name, route}) {
     let cssLink = 'text-xl font-semibold'
-    return <NavLink to={route} className={({isActive }) => isActive ? 'text-slate-50 ' + cssLink : cssLink + ' text-slate-200'}>{name}</NavLink>
+    return <NavLink to={route} className={({isActive }) => isActive ? 'text-slate-50 font-thin ' + cssLink : cssLink +
+     ' text-slate-200 font-thin'}>{name}</NavLink>
 }
 
 function NavBar() {
@@ -13,7 +14,7 @@ function NavBar() {
           <NavLink to="/" className='z-20'>
             <img className='drop-shadow-xl h-14' src={mask}/>
           </NavLink>
-          <div className='flex space-x-12 items-center'>
+          <div className='flex space-x-12 items-center font-ocean'>
               <Link name="Projets" route="/Projects"/>
               <Link name="À propos" route="/"/>
           </div>

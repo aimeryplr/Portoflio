@@ -2,7 +2,7 @@
     "projects" : {
         "elydia": {
             "name": "Elydia",
-            "desc": "Serveur Minecraft multijoueur innovant. Gestion de serveur Linux. Création d'une base de données pour les joueurs. Système de progression. Optimisation. Développement de plugins. Gestion de communauté.",
+            "desc": "Serveur Minecraft multijoueur innovant. Gestion de serveur Linux. Création d'une base de données pour les joueurs. Système de progression. Optimisation des requêtes SQL. Développement de plugins. Gestion de communauté.",
             "icon": "IconElydia.png",
             "image": "ImageElydia.jpg",
             "competences" : ["Java", "Spigot", "SQL", "Server Management", "Leadership", "Creativité"]
