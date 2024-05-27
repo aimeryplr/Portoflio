@@ -52,7 +52,7 @@ function Projects() {
                             key={index}
                             ref={e => (projectRef.current[index] = e)}
                             onClick={() => scrollToPos(project.name)}
-                            icon={"src/assets/projects/" + project.icon}
+                            icon={"/src/assets/projects/" + project.icon}
                             name={project.name}
                             competences={project.competences}
                         />
@@ -67,7 +67,7 @@ function Projects() {
                     <h1 className="text-center text-gray font-bold text-5xl">{project.name}</h1>
                     <ImgAndText
                         key={index}
-                        image={'src/assets/projects/' + project.image}
+                        image={'/src/assets/projects/' + project.image}
                         text={project.desc}
                         isImageLeft={index % 2 === 0}
                     />
