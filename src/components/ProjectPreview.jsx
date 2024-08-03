@@ -29,7 +29,6 @@ const ProjectPreview = forwardRef((props, ref) => {
         waveTimeLine2.play()
 
         imageRef.current.style.filter = "brightness(0.5)"
-        console.log("enter")
     }
 
     const onLeave = ({currentTarget}) => {
