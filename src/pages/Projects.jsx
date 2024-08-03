@@ -11,6 +11,7 @@ import Dot from "../components/Dot.jsx";
 import Title from "../components/Title.jsx";
 
 import {imageElydia, imagePlanetExplorer, imageMartialWorld, planetExplorer, martialWorld, elydia} from "/src/assets/projects/images.js"
+import {div} from "three/nodes";
 
 function Projects() {
     const projectRef = useRef([]);
@@ -23,6 +24,7 @@ function Projects() {
     const [images, setImages] = useState([imageElydia, imageMartialWorld, imagePlanetExplorer]);
     const [icons, setIcons] = useState([elydia, martialWorld, planetExplorer])
 
+    const isMobileDevice = /Mobi|Android/i.test(navigator.userAgent);
 
     useLayoutEffect(() => {
         console.log(new URL("/src/assets/projects/elidia.png", import.meta.url).href);
@@ -47,40 +49,47 @@ function Projects() {
 
     return (
         <>
-            <Title title="Mes Projets"/>
-            <OceansRay />
-            <div className="flex flex-wrap min-h-[88vh] gap-6 justify-start items-center mx-[8%] mb-6">
-                {Object.keys(projects.projects).map((key, index) => {
-                    let project = projects.projects[key];
-                    return (
-                        <ProjectPreview
-                            key={index}
-                            ref={e => (projectRef.current[index] = e)}
-                            onClick={() => scrollToPos(project.name)}
-                            icon={icons[index]}
-                            name={project.name}
-                            competences={project.competences}
-                        />
-                    );
-                })}
-            </div>
+            {!isMobileDevice ? (
+                <>
+                <Title title="Mes Projets"/>
+                <OceansRay />
+                <div className="flex min-h-[88vh] gap-6 justify-center items-center mx-[8%] mb-6">
+                    {Object.keys(projects.projects).map((key, index) => {
+                        let project = projects.projects[key];
+                        return (
+                            <ProjectPreview
+                                key={index}
+                                ref={e => (projectRef.current[index] = e)}
+                                onClick={() => scrollToPos(project.name)}
+                                icon={icons[index]}
+                                name={project.name}
+                                competences={project.competences}
+                            />
+                        );
+                    })}
+                </div>
+                </>
+            ): (
+                <div className="h-[8vh]"></div>
+            )}
             {Object.keys(projects.projects).map((key, index) => {
                 let project = projects.projects[key];
                 return (
-                    <section id={project.name} className={"relative justify-between flex flex-col py-10 h-[60vh] bg-slate-100"}>
-                    <HorizontalBar color="bg-cyan-400"/>
-                    <h1 className="text-center text-gray font-bold text-5xl">{project.name}</h1>
-                    <ImgAndText
-                        key={index}
-                        image={images[index]}
-                        text={project.desc}
-                        isImageLeft={index % 2 === 0}
-                    />
-                    <div className="flex flex-wrap gap-3 items-center justify-center">
+                    <section id={project.name}
+                             className={"relative justify-between flex flex-col py-10 sm:h-[60vh] sm:min-h-0 min-h-[90vh] bg-slate-100"}>
+                        <HorizontalBar color="bg-cyan-400"/>
+                        <h1 className="text-center text-gray font-bold text-5xl">{project.name}</h1>
+                        <ImgAndText
+                            key={index}
+                            image={images[index]}
+                            text={project.desc}
+                            isImageLeft={isMobileDevice ? true : index % 2 === 0}
+                        />
+                        <div className="flex flex-wrap gap-3 items-center justify-center">
                         {projects.projects[key].competences.map((competence, index) => {
                             return (
                                 <>
-                                    <p className="text-gray font-medium text-2xl">{competence}</p>
+                                    <p className="text-gray font-medium sm:text-2xl text-lg">{competence}</p>
                                     {index < projects.projects[key].competences.length - 1 &&
                                         <Dot color="bg-cyan-400"/>}
                                 </>
