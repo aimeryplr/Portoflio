@@ -1,4 +1,4 @@
-import backgroundOcean from '/src/assets/about/seaBackground.jpg'
+import backgroundOcean from '../assets/about/seaBackground.jpg'
 import { gsap } from "gsap";
 import {useLayoutEffect, useRef} from "react";
 
