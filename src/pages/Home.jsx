@@ -21,8 +21,8 @@ function Home() {
                 <h1 ref={titleRef} className="sm:text-8xl text-3xl sm:text-left text-center font-bold font-dev text-slate-100">DÉVELOPPEUR FULL STACK</h1>
                 <h1 ref={nameRef} className="sm:mb-16 mb-8 sm:text-5xl text-2xl sm:text-left text-center font-bold font-ocean text-slate-100">PELLERIN Aimery</h1>
                 <p className="sm:w-[40%] text-slate-200 text-xl">L'informatique a toujours été une discipline qui me passionne depuis tout petit.
-                    Année après année, j'ai pris goût à découvrir de nouveaux langages de programmation ou à utiliser de nouvelles applications afin de développer ma créativité et nourrir ma curiosité.
-                    Je suis actuellement en train d'apprendre ces compétences à l'IUT 2 de Grenoble.</p>
+                    Au fil des années, j'ai développé un véritable intérêt pour l'exploration de nouveaux langages de programmation et l'utilisation d'applications innovantes, stimulant ainsi ma créativité et nourrissant ma curiosité.
+                    Actuellement, je poursuis l'apprentissage de ces compétences à l'IUT 2 de Grenoble.</p>
             </div>
         </div>
     );
