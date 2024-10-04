@@ -12,14 +12,16 @@
             "desc": "Gérer une équipe. Mettre en place des idées de manière organisée. Concevoir un monde et une interface graphique sous le moteur de jeu Roblox. Gestion de communauté et d'événements.",
             "icon": "martialWorld.png",
             "image": "ImageMartialWorld.png",
-            "competences" : ["Lua", "Roblox", "Leadership", "Communication", "Design", "Creativité"]
+            "competences" : ["Lua", "Roblox", "Leadership", "Communication", "Design", "Creativité"],
+            "lien" : "https://www.roblox.com/games/14556911490/Martial-World"
         },
         "planetExplorer": {
             "name": "Planet Explorer",
             "desc": "Création d'un jeu vidéo 2D. Utilisation de la bibliothèque Pygame. Gérer une équipe de 3 personnes et élaborer un plan du code à l'avance. Imaginer des mécaniques de jeu et les réaliser en équipe.",
             "icon": "planetExplorer.png",
             "image": "ImagePlanetExplorer.png",
-            "competences" : ["Python", "Pygame", "Leadership", "Creativité"]
+            "competences" : ["Python", "Pygame", "Leadership", "Creativité"],
+            "lien" : "https://github.com/arzox/Planet-Explorer"
         }
     }
 }

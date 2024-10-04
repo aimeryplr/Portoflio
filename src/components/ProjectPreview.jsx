@@ -44,7 +44,7 @@ const ProjectPreview = forwardRef((props, ref) => {
 
     return (
         <div onClick={props.onClick} ref={ref} onMouseEnter={onEnter} onMouseLeave={onLeave}
-             className={"overflow-clip w-[350px] h-[350px] relative flex flex-col items-center border-0 rounded-xl aspect-square drop-shadow-md cursor-pointer bg-slate-100"}>
+             className={"overflow-clip w-[350px] h-[350px] relative flex flex-col items-center border-0 rounded-xl aspect-square drop-shadow-xl cursor-pointer bg-slate-200"}>
             <figure className={
                 "my-[12.5%] flex flex-col justify-center items-center space-y-4 w-full"}>
                 <img src={props.icon} ref={imageRef} className="w-3/4 rounded-lg" alt="souka"/>

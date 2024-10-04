@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import { gsap } from "gsap";
 import { useLayoutEffect } from "react";
-import { useState, useEffect, useRef, forwardRef } from "react";
+import { useState, useRef } from "react";
 import ProjectPreview from "../components/ProjectPreview";
 import OceanRay from "../components/OceanRay";
 import ImgAndText from "../components/ImgAndText.jsx";
@@ -9,9 +9,18 @@ import HorizontalBar from "../components/HorizontalBar.jsx";
 import projects from "../assets/projects/projects.json";
 import Dot from "../components/Dot.jsx";
 import Title from "../components/Title.jsx";
+import lien from "../assets/projects/lien.png"
 
 import {imageElydia, imagePlanetExplorer, imageMartialWorld, planetExplorer, martialWorld, elydia} from "/src/assets/projects/images.js"
 import {div} from "three/nodes";
+
+function Link(props) {
+    return (
+        <a href={props.lien}>
+            <img src={lien} className="absolute right-[10%] w-10"/>
+        </a>
+    )
+}
 
 function Projects() {
     const projectRef = useRef([]);
@@ -51,8 +60,8 @@ function Projects() {
         <>
             {!isMobileDevice ? (
                 <>
+                <OceansRay/>
                 <Title title="Mes Projets"/>
-                <OceansRay />
                 <div className="flex min-h-[88vh] gap-6 justify-center items-center mx-[8%] mb-6">
                     {Object.keys(projects.projects).map((key, index) => {
                         let project = projects.projects[key];
@@ -78,6 +87,7 @@ function Projects() {
                     <section id={project.name}
                              className={"relative justify-between flex flex-col py-10 sm:h-[60vh] sm:min-h-0 min-h-[90vh] bg-slate-100"}>
                         <HorizontalBar color="bg-cyan-400"/>
+                        {(project.hasOwnProperty("lien")) && <Link lien={project.lien} />}
                         <h1 className="text-center text-gray font-bold text-5xl">{project.name}</h1>
                         <ImgAndText
                             key={index}
