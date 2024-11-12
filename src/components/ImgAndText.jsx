@@ -2,6 +2,15 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {useLayoutEffect, useRef} from "react";
 
+function textWithBullet(text) {
+    let newText = "•  "
+    for (let i = 0; i < text.length; i++) {
+        newText += text[i]
+        if (text[i] === "." && i !== text.length - 1) newText += "\n• "
+    }
+    return <pre>{newText}</pre>
+}
+
 function ImgAndText(props) {
     let imgRef = useRef()
     let textRef = useRef()
@@ -9,7 +18,7 @@ function ImgAndText(props) {
     let imgDiv = <div ref={imgRef} className="flex items-center rounded-lg my-2 border-4 border-slate-50 sm:drop-shadow-[0_0_25px_rgba(6,182,212,0.3)] drop-shadow-[0_0_5px_rgba(6,182,212,0.2)] sm:max-h-screen max-h-44 h-[60%] w-[30em] overflow-clip">
         <img src={props.image} className="h-full w-full object-cover"/>
     </div>
-    let text = <h2 ref={textRef} className={"text-gray sm:text-4xl text:sm text-justify sm:w-[60%] "}>{props.text}</h2>
+    let textElement = <h2 ref={textRef} className={"text-gray sm:text-2xl text:sm text-justify sm:w-[60%] "}>{textWithBullet(props.text)}</h2>
 
     gsap.registerPlugin(ScrollTrigger)
 
@@ -31,9 +40,9 @@ function ImgAndText(props) {
             {
             props.isImageLeft ?
             <>{imgDiv}
-            {text}</>
+            {textElement}</>
             :
-            <>{text}
+            <>{textElement}
             {imgDiv}</>}
         </span>
     )

@@ -1,27 +1,35 @@
 {
     "projects" : {
-        "elydia": {
-            "name": "Elydia",
-            "desc": "Serveur Minecraft multijoueur innovant. Gestion de serveur Linux. Création d'une base de données pour les joueurs. Système de progression. Optimisation des requêtes SQL. Développement de plugins. Gestion de communauté.",
-            "icon": "elydia.png",
-            "image": "ImageElydia.jpg",
-            "competences" : ["Java", "Spigot", "SQL", "Server Management", "Leadership", "Creativité"]
+        "cyber factory": {
+            "name": "Cyber-Factory",
+            "desc": "Système de Tile Grid avec un pattern composite. Système de quêtes avec des arbres. Système de transport de ressources utilisant des listes chaînées. Intégration de webhooks et requêtes API. Gestion d'une communauté active de plus de 100 joueurs. Organisation et répartition des tâches au sein de l’équipe. Organisation de sessions de playtest hebdomadaires. Création d'interfaces responsives.",
+            "icon": "cyber-factory.png",
+            "image": "imageMartialWorld.jpg",
+            "competences" : ["TS", "Leadership", "Architecture", "Design", "Roblox"],
+            "lien" : "https://discord.gg/A2e5BcpSvC"
         },
-        "martialWorld": {
-            "name": "Martial World",
-            "desc": "Gérer une équipe. Mettre en place des idées de manière organisée. Concevoir un monde et une interface graphique sous le moteur de jeu Roblox. Gestion de communauté et d'événements.",
-            "icon": "martialWorld.png",
-            "image": "ImageMartialWorld.png",
-            "competences" : ["Lua", "Roblox", "Leadership", "Communication", "Design", "Creativité"],
-            "lien" : "https://www.roblox.com/games/14556911490/Martial-World"
+        "sniper bot": {
+            "name": "Sniper Bot",
+            "desc": "Trading automatique. Détection des nouveaux tokens. Vérification d'audit et de smart contractvit. Calcul d'indicateurs techniques. Utilisation d'API externe. Développement de l'application sous React.",
+            "icon": "solana.png",
+            "image": "imageSniperBot.png",
+            "competences" : ["TS", "API","Solana", "Etherum"],
+            "lien" : "https://github.com/arzox/SniperBot.git"
         },
         "planetExplorer": {
             "name": "Planet Explorer",
             "desc": "Création d'un jeu vidéo 2D. Utilisation de la bibliothèque Pygame. Gérer une équipe de 3 personnes et élaborer un plan du code à l'avance. Imaginer des mécaniques de jeu et les réaliser en équipe.",
             "icon": "planetExplorer.png",
-            "image": "ImagePlanetExplorer.png",
+            "image": "imagePlanetExplorer.jpg",
             "competences" : ["Python", "Pygame", "Leadership", "Creativité"],
             "lien" : "https://github.com/arzox/Planet-Explorer"
+        },
+        "elydia": {
+            "name": "Elydia",
+            "desc": "Serveur Minecraft multijoueur innovant. Gestion de serveur Linux. Création d'une base de données pour les joueurs. Système de progression. Optimisation des requêtes SQL. Développement de plugins. Gestion de communauté.",
+            "icon": "elydia.png",
+            "image": "imageElydia.jpg",
+            "competences" : ["Java", "Spigot", "SQL", "Server Management", "Leadership", "Creativité"]
         }
     }
 }

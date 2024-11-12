@@ -10,8 +10,6 @@ import projects from "../assets/projects/projects.json";
 import Dot from "../components/Dot.jsx";
 import Title from "../components/Title.jsx";
 import lien from "../assets/projects/lien.png"
-
-import {imageElydia, imagePlanetExplorer, imageMartialWorld, planetExplorer, martialWorld, elydia} from "/src/assets/projects/images.js"
 import {div} from "three/nodes";
 
 function Link(props) {
@@ -30,13 +28,9 @@ function Projects() {
         window.scroll({top: pos, left: 0, behavior: "smooth"})
     }
 
-    const [images, setImages] = useState([imageElydia, imageMartialWorld, imagePlanetExplorer]);
-    const [icons, setIcons] = useState([elydia, martialWorld, planetExplorer])
-
     const isMobileDevice = /Mobi|Android/i.test(navigator.userAgent);
 
     useLayoutEffect(() => {
-        console.log(new URL("/src/assets/projects/elidia.png", import.meta.url).href);
         let tl = gsap.timeline()
         tl.from(rayRef.current, {opacity: 0, duration: 0.5});
         tl.to(projectRef.current, {opacity: 1, duration: 1, stagger: 0.25}, 0.25);
@@ -65,12 +59,13 @@ function Projects() {
                 <div className="flex min-h-[88vh] gap-6 justify-center items-center mx-[8%] mb-6">
                     {Object.keys(projects.projects).map((key, index) => {
                         let project = projects.projects[key];
+                        const images = import.meta.glob('/src/assets/projects/*', { eager: true })
                         return (
                             <ProjectPreview
                                 key={index}
                                 ref={e => (projectRef.current[index] = e)}
                                 onClick={() => scrollToPos(project.name)}
-                                icon={icons[index]}
+                                icon={images[`/src/assets/projects/${project.icon}`].default}
                                 name={project.name}
                                 competences={project.competences}
                             />
@@ -83,6 +78,8 @@ function Projects() {
             )}
             {Object.keys(projects.projects).map((key, index) => {
                 let project = projects.projects[key];
+                const images = import.meta.glob('/src/assets/projects/*', { eager: true })
+                console.log(`/src/assets/projects/${project.image}.jpg`)
                 return (
                     <section id={project.name}
                              className={"relative justify-between flex flex-col py-10 sm:h-[60vh] sm:min-h-0 min-h-[90vh] bg-slate-100"}>
@@ -91,7 +88,7 @@ function Projects() {
                         <h1 className="text-center text-gray font-bold text-5xl">{project.name}</h1>
                         <ImgAndText
                             key={index}
-                            image={images[index]}
+                            image={images[`/src/assets/projects/${project.image}`].default}
                             text={project.desc}
                             isImageLeft={isMobileDevice ? true : index % 2 === 0}
                         />

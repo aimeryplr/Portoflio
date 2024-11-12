@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import React, { useLayoutEffect } from "react";
-import { useState, useEffect, useRef, forwardRef } from "react";
+import { useRef, forwardRef } from "react";
 import Dot from "./Dot.jsx";
 
 const ProjectPreview = forwardRef((props, ref) => {
@@ -23,7 +23,7 @@ const ProjectPreview = forwardRef((props, ref) => {
     const onEnter = ({currentTarget}) => {
         gsap.to(textRef.current, {opacity: 1, duration: 0.5, bottom: "4%", ease: "expo"})
         gsap.to(currentTarget, {scale: 1.05, ease: "slow", duration: 0.2, y: 20})
-        gsap.to(wave.current, {duration: 0.5, ease: "circ.out", y: "30%"})
+        gsap.to(wave.current, {duration: 0.5, ease: "circ.out", y: "20%"})
 
         waveTimeLine1.play()
         waveTimeLine2.play()
@@ -44,12 +44,10 @@ const ProjectPreview = forwardRef((props, ref) => {
 
     return (
         <div onClick={props.onClick} ref={ref} onMouseEnter={onEnter} onMouseLeave={onLeave}
-             className={"overflow-clip w-[350px] h-[350px] relative flex flex-col items-center border-0 rounded-xl aspect-square drop-shadow-xl cursor-pointer bg-slate-200"}>
+             className={"overflow-clip w-[350px] h-[350px] relative flex flex-col justify-center items-center border-0 rounded-full drop-shadow-xl cursor-pointer bg-slate-100"}>
             <figure className={
-                "my-[12.5%] flex flex-col justify-center items-center space-y-4 w-full"}>
-                <img src={props.icon} ref={imageRef} className="w-3/4 rounded-lg" alt="souka"/>
-                <figcaption ref={textRef}
-                            className="absolute opacity-0 -bottom-10 text-slate-50 font-bold text-2xl">{props.text}</figcaption>
+                "flex flex-col justify-center items-center space-y-4"}>
+                <img src={props.icon} ref={imageRef} className="w-5/6 h-full object-contain" alt="souka"/>
             </figure>
             <div className="bottom-0 h-fit w-full absolute translate-y-full" ref={wave}>
                 <svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -73,9 +71,7 @@ const ProjectPreview = forwardRef((props, ref) => {
                     </g>
                 </svg>
                 <p className="absolute z-10 text-center w-full top-[50%] text-slate-100 text-3xl font-ocean">{props.name}</p>
-                {/*<img className="absolute z-10 w-20 top-1/4 right-1/2 translate-x-1/2" src={downArrow}/>*/}
-                <div
-                    className="absolute z-10 top-[60%] flex justify-center items-center right-1/2 translate-x-1/2 gap-1">
+                <div className="absolute z-10 top-[60%] flex justify-center items-center right-1/2 translate-x-1/2 gap-1">
                     {props.competences.slice(0, Math.min(3, props.competences.length)).map((competence, index) => {
                         return (
                             <>
