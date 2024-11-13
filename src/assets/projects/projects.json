@@ -4,7 +4,7 @@
             "name": "Cyber-Factory",
             "desc": "Système de Tile Grid avec un pattern composite. Système de quêtes avec des arbres. Système de transport de ressources utilisant des listes chaînées. Intégration de webhooks et requêtes API. Gestion d'une communauté active de plus de 100 joueurs. Organisation et répartition des tâches au sein de l’équipe. Organisation de sessions de playtest hebdomadaires. Création d'interfaces responsives.",
             "icon": "cyber-factory.png",
-            "image": "imageMartialWorld.jpg",
+            "image": "imageCyberFactory.png",
             "competences" : ["TS", "Leadership", "Architecture", "Design", "Roblox"],
             "lien" : "https://discord.gg/A2e5BcpSvC"
         },
