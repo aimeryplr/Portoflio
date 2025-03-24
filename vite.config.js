@@ -7,7 +7,6 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd(), '');
   return {
     plugins: [react()],
-    base: "/portfolio",
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src')

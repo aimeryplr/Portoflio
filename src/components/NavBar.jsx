@@ -15,7 +15,7 @@ function NavBar() {
             <img className='drop-shadow-xl sm:h-14 h-8' src={mask}/>
           </NavLink>
           <div className='flex sm:space-x-12 space-x-8 items-center font-ocean'>
-              <Link name="Projets" route="/Projects"/>
+              <Link name="Projets" route="/projets"/>
               <Link name="À propos" route="/"/>
           </div>
       </header>

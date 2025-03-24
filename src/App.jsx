@@ -29,12 +29,11 @@ function App() {
 
   return (
     <main className="bg-slate-100">
-      <Router basename={"/portfolio"}>
+      <Router>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Projects" element={<Projects />} />
-          <Route path="/About" element={"About"} />
+          <Route path="/projets" element={<Projects />} />
         </Routes>
         <Footer />
       </Router>
