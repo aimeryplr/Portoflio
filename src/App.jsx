@@ -21,7 +21,7 @@ function App() {
     // Run the function after the component mounts
     document.addEventListener("DOMContentLoaded", removeDiv);
 
-    // Cleanup the event listener when the component unmounts
+    // Cleanup the event listener when the component unmount
     return () => {
       document.removeEventListener("DOMContentLoaded", removeDiv);
     };
