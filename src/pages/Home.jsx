@@ -33,7 +33,7 @@ function Home() {
                     stimulant ainsi ma créativité et nourrissant ma curiosité. Actuellement, je poursuis l'apprentissage
                     de ces compétences à l'IUT 2 de Grenoble.</p>
                 <div className="flex justify-center">
-                    <NavLink name="Projets" to="/Projects" className="text-white p-2 underline font-ocean font-bold text-4xl w-1/6 rounded-xl text-center">Projets</NavLink>
+                    <NavLink name="Projets" to="/projets" className="text-white p-2 underline font-ocean font-bold text-4xl w-1/6 rounded-xl text-center">Projets</NavLink>
                 </div>
             </div>
         </div>
